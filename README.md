@@ -32,6 +32,47 @@ Why Nginx ?
 
 Architecture of Nginx
 
+![NGINX1 drawio](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/434a460b-798a-43db-8980-2a36f0d000b2)
+
+Nginx architecture consists of a master process and multiple child processes i.e. worker processes. These multiple child processes helps in managing the load on the server by distributing the traffic towards multiple worker processes.
+
+Suppose if you have a website running on a particular port and many people tried to access the same then at a point the website will crash because it will not be able to take the load.
+
+To overcome this if you served the website through Nginx server then the server will distribute the load in it’s multiple child processed and hence there won’t be any crash and the website will work smoothly.
+
+Overall, the architecture of Nginx is designed to provide high performance and scalability while remaining flexible and easy to configure.
+
+More features of Nginx :
+-------------------------
+
+Reverse Proxy :
+
+Suppose there is a website running on a particular port on local host and you want it to run on the production without violating the security then we can use the reverse proxy and can create a bridge and make the port accessible to all the users.
+
+A reverse proxy is a server that sits between client devices and one or more web servers, forwarding client requests to the appropriate server and returning the server’s response to the client. The client is unaware that the response is coming from a different server than the one it sent the request to.
+
+Load Balancing:
+
+It is a technique used to distribute incoming network traffic across multiple servers to ensure high availability and reliability of a service.
+
+URL Redirection, Indexing, Caching
+
+URL redirection is the process of forwarding one URL to another.
+
+Indexing is the process of adding web pages to a search engine’s database so that they can be returned in search results.
+
+Caching is the process of storing frequently accessed data in a cache so that it can be served more quickly.
+
+# Hands-On
+
+![image](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/cf70b06c-d2c1-4029-99f3-5880ecb31ab3)
+
+
+Flowchart
+
+
+First you need to create an AWS EC2 instance. I have selected Ubuntu image while creating the EC2 instance. Add inbound traffic rules for HTTP, and HTTPS.
+
 ## Nginx
 
 Install Nginx reverse proxy to make this application available
