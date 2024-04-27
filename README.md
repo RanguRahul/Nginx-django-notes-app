@@ -54,49 +54,38 @@ Also you can take the public IP of the server and try accessing it in browser,to
 
 This page is been accessed from /var/www/html, git clone https://github.com/RanguRahul/Nginx-django-notes-app.git
 
-
 You can check the Nginx configuration files here:
-
 ![6](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/f4b183ea-a260-407b-ba3f-7915ce32c772)
 
 Now install docker
-
 ![7](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/b9e47de8-f45e-40d9-a05e-a47408e8ae3e)
 
 Check docker status:
-
 ![8](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/d965b16f-645a-4e09-87fb-cbe44a29dfc0)
 
+
 Now check if docker is working fine.
-
-
-
 ![9](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/0ac3bdf1-338d-4915-8645-4cd210889204)
 
+
 Here is the Dockerfile :
-
-
 ![10](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/97c1fd65-5c39-4658-aa05-9968e7f4da83)
 
 
 Now we will start the build process of the application. Use command :
-
 ![12](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/f696b962-a885-40fc-a65f-0b0c69bb6e33)
 
 
 ![11](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/3657893e-8988-4c57-879c-1caa2ade5f0a)
 
+
 Now using this image we will create a container . Use below command:
-
-
-
 ![13](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/ac976174-b47c-495c-8102-d77fb16e487d)
 
+
 Now do #docker ps and check if the container is created properly and it has been tagged to the 8000 port so that we can access the same on that port.
-
-
-
 ![14](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/5aa9f474-7aa7-4b73-a4d3-47da7fce2dc4)
+
 
 #curl -L <local_url>:<External-Ip> curl -L http://172.0.0.10:8000
 
@@ -110,22 +99,19 @@ For this we need to change the configuration of Nginx so for that go to
 
 #/etc/nginx/sites-enabled
 
-
 ![17](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/f8f8f318-0bb2-416b-8958-86db91703521)
 
-Now we will update the default file for changing the configuration.
 
+Now we will update the default file for changing the configuration.
 ![16](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/8c47a0cc-980b-42d6-b173-ebe50e979e8c)
 
 Now you can access the application using the IP address.
-
 ![22](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/26474acf-0c84-4e78-ba23-851c85697e41)
 
 
 Now the app is accessible but we are not able to update or delete the notes here because the backend code is not updated here to store such data.
 
 For this we need to copy all the static files of the application to the location Nginx root folder /var/www/html so that we can access it.
-
 
 ![18](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/e1ad0b28-64d2-4c2b-9cdd-bb48b5ddee06)
 
@@ -140,8 +126,6 @@ Here we have added a proxy address for the incoming traffic.
 service nginx restart
 
 After adding this you need to restart the nginx so that the updates will work. Use below command to restart nginx.
-
-
 ![20](https://github.com/RanguRahul/Nginx-django-notes-app/assets/120587828/6bec69e9-07bd-4a23-82eb-c866b48f3814)
 
 Now you can access the application using the IP address.
